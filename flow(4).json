@@ -1,0 +1,258 @@
+[
+    {
+        "id": "a4d212dba50967f6",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "152f9137370d565f",
+        "type": "mqtt in",
+        "z": "a4d212dba50967f6",
+        "name": "",
+        "topic": "codigoIoT/g9/mosquitto/msg",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "731edda2a0cfbbea",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "f31c189f65b5b48e",
+                "9eb380ea99d84e69"
+            ]
+        ]
+    },
+    {
+        "id": "f31c189f65b5b48e",
+        "type": "json",
+        "z": "a4d212dba50967f6",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "25b0e03266ccfc54",
+                "1ee8bf75c15b756b"
+            ]
+        ]
+    },
+    {
+        "id": "1ee8bf75c15b756b",
+        "type": "function",
+        "z": "a4d212dba50967f6",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 100,
+        "wires": [
+            [
+                "c2aff343e2c74ce1",
+                "0aea47fd5c709b10"
+            ]
+        ]
+    },
+    {
+        "id": "25b0e03266ccfc54",
+        "type": "debug",
+        "z": "a4d212dba50967f6",
+        "name": "msg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "cbfa8ae1c4dbeb4e",
+        "type": "inject",
+        "z": "a4d212dba50967f6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"Chirino\",\"temp\":20.5}",
+        "payloadType": "str",
+        "x": 70,
+        "y": 280,
+        "wires": [
+            [
+                "3142bf8d05dc5a36"
+            ]
+        ]
+    },
+    {
+        "id": "3142bf8d05dc5a36",
+        "type": "mqtt out",
+        "z": "a4d212dba50967f6",
+        "name": "",
+        "topic": "codigoIoT/g9/mosquitto/msg",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "731edda2a0cfbbea",
+        "x": 360,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9eb380ea99d84e69",
+        "type": "debug",
+        "z": "a4d212dba50967f6",
+        "name": "msg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c2aff343e2c74ce1",
+        "type": "debug",
+        "z": "a4d212dba50967f6",
+        "name": "msg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0aea47fd5c709b10",
+        "type": "ui_chart",
+        "z": "a4d212dba50967f6",
+        "name": "",
+        "group": "7d6b20a4ad59bffc",
+        "order": 0,
+        "width": "6",
+        "height": "6",
+        "label": "Temperatura de los alumnos",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "45",
+        "removeOlder": "20",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 780,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "info": "{\n    \"id\": \"Chirino\",\n    \"temp\":19.5´\n}"
+    },
+    {
+        "id": "731edda2a0cfbbea",
+        "type": "mqtt-broker",
+        "name": "g9",
+        "broker": "3.123.49.252",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7d6b20a4ad59bffc",
+        "type": "ui_group",
+        "name": "Grupo Grafica",
+        "tab": "ba53e0ae2ac99425",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ba53e0ae2ac99425",
+        "type": "ui_tab",
+        "name": "Flow4",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]
